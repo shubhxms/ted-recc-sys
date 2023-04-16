@@ -43,5 +43,13 @@ with open('TED_Talk_TagsRelated_cols.csv', 'r', errors='ignore') as infile:
 
 isolated_nodes = list(nx.isolates(G))
 G.remove_nodes_from(isolated_nodes)
+S = [G.subgraph(c).copy() for c in nx.connected_components(G)]
+k = 0
+
+for i in S:
+    if len(list(i.nodes)) > 3:
+       k = k+1
+
+print(k)
 nx.draw(G)
 plt.show()
