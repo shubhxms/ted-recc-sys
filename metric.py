@@ -52,7 +52,7 @@ def duration(duration, threshold, k):
   if duration > threshold:
     difference = duration - threshold
     penalty = difference ** 2 # gradual fall
-    normalized_duration =  1 / (1 + math.exp((720 - duration) / k))
+    normalized_duration =  - 1 / (1 + math.exp((720 - duration) / k))
     return normalized_duration
   else:
     return 0
